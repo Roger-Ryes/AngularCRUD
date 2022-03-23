@@ -7,9 +7,17 @@ import { Heroe } from '../interfaces/heroes.interface';
 export class ImagenPipe implements PipeTransform {
 
   transform(heroe: Heroe): string {
-    const picture = (heroe.id!=null)?heroe.id:"dc-batman";
-    const urlImage: string = `./assets/heroes/${ picture }.jpg`;
-    return urlImage;
+    if(!heroe.id && !heroe.alt_img){
+      const urlImage: string = "./assets/no-image.png"
+      return urlImage;
+    }else if(heroe.alt_img){
+      console.log(heroe.alt_img);
+      return heroe.alt_img
+    }
+    else{
+      const urlImage: string = `./assets/heroes/${ heroe.id }.jpg`;
+      return urlImage;
+    }
   }
 
 }

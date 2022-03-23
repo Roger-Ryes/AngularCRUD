@@ -18,7 +18,7 @@ export class HeroesService {
 
   getHeroes(): Observable<Heroe[]>{ //Para detallar mas
     const url: string = `${this.endPoint}/heroes`;
-    return this.http.get<Heroe[]>(url);
+    return this.http.get<Heroe[]>( url );
   }
   
   getHeroeById( id:string ): Observable<Heroe>{
@@ -34,5 +34,10 @@ export class HeroesService {
   addHeroe( heroe:Heroe ): Observable<Heroe>{
     const url: string = `${this.endPoint}/heroes`;
     return this.http.post<Heroe>( url, heroe); 
+  }
+    
+  updateHeroe( heroe:Heroe ): Observable<Heroe>{
+    const url: string = `${this.endPoint}/heroes/${heroe.id}`;
+    return this.http.put<Heroe>( url, heroe); 
   }
 }
