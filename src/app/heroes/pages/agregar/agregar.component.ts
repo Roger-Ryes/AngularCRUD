@@ -40,6 +40,7 @@ export class AgregarComponent implements OnInit {
     alt_img:"",
   }
 
+
   constructor(
     private heroesService:HeroesService,
     private activatedRoute: ActivatedRoute, // Lee el url
@@ -80,5 +81,12 @@ export class AgregarComponent implements OnInit {
         this.router.navigate(["heroes/editar/", heroe.id])
       });
     }
+  }
+
+  delete(){
+    this.heroesService.deleteHeroe(this.heroe.id!)
+    .subscribe( resp=> {
+      this.router.navigate(['/heroes/listado/'])
+    })
   }
 }

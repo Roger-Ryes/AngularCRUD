@@ -40,4 +40,9 @@ export class HeroesService {
     const url: string = `${this.endPoint}/heroes/${heroe.id}`;
     return this.http.put<Heroe>( url, heroe); 
   }
+    
+  deleteHeroe( id:string ): Observable<any>{
+    const url: string = `${this.endPoint}/heroes/${id}`;
+    return this.http.delete<any>( url ); 
+  }
 }
