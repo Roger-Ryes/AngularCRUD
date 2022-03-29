@@ -26,6 +26,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 ____________________________________________
+## ANGULAR MATERIAL
+	https://material.angular.io/
+	https://material.angular.io/components/categories
+	https://www.npmjs.com/package/@angular/flex-layout
+	icons
+	https://fonts.google.com/icons?selected=Material+Icons
+	Backend
+	https://gist.github.com/Klerith/403c91e61d3c87284beb0dd138619958
+	https://www.npmjs.com/package/json-server
+
 ## LEER LA URL
 	import { ActivatedRoute } from '@angular/router';
 
