@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+____________________________________________
+## LEER LA URL
+	import { ActivatedRoute } from '@angular/router';
+
+	constructor(
+		private activatedRoute: ActivatedRoute // Lee el url
+	) { }
+
+	ngOnInit(): void {
+		this.activatedRoute.params
+		.subscribe( ({id}) => {
+		  console.log(id)
+		  })
+	}
+
+## PURE EN PIPE'S
+pure: false // Se invoca al metodo transform(), cuando la entrada del atributo cambia
