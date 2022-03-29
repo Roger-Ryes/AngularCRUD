@@ -11,6 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
@@ -28,6 +29,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatSidenavModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     MatToolbarModule
   ]
 })
