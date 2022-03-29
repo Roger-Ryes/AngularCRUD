@@ -15,17 +15,20 @@ import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.
 
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { RouterModule } from '@angular/router';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 
 @NgModule({
   declarations: [
     AgregarComponent,
     BuscarComponent,
+    ConfirmComponent,
     HomeComponent,
     ListComponent,
     HeroComponent,
     HeroeTarjetaComponent,
-    ImagenPipe
+    ImagenPipe,
+    ConfirmComponent
   ],
   imports: [
     CommonModule,
