@@ -2,11 +2,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Heroe } from '../interfaces/heroes.interface';
 
 @Pipe({
-  name: 'imagen'
+  name: 'imagen',
+  pure: false //Se invoca al metodo transfor(), cuando la entrada cambia
 })
 export class ImagenPipe implements PipeTransform {
-
   transform(heroe: Heroe): string {
+    console.log("Llamo a pipe")
     if(!heroe.id && !heroe.alt_img){
       const urlImage: string = "./assets/no-image.png"
       return urlImage;
