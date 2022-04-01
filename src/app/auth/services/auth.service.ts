@@ -10,12 +10,12 @@ import { tap } from 'rxjs';
 export class AuthService {
 
   private endPoint = environment.endPoint;
-  private _auth!:Auth;
+  private _auth!:Auth|undefined;
 
   constructor(private http: HttpClient) { }
 
   login(){
-    const url:string = `${this.endPoint}/usuarios/1`;
+    const url:string = `${this.endPoint}/usuarios/12`;
     return this.http.get<Auth>(url)
            .pipe(
              tap(resp=> this._auth = resp)

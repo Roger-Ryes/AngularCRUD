@@ -52,3 +52,14 @@ ____________________________________________
 
 ## PURE EN PIPE'S
 pure: false // Se invoca al metodo transform(), cuando la entrada del atributo cambia
+
+<br>
+## GUARD
+Permite no acceder a otras rutas si no cumple un parametro como no contar con el id del usuario
+ng g guard directorio/
+
+Aparecen opciones, se uso el CanActivate y CanLoad 
+
+## GUARD - CanLoad
+Solo sirve para prevenir que el usuario carge el modulo, si ya el modulo estaba cargado la persona
+podra quedarse ahi
