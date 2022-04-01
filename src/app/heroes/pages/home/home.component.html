@@ -37,7 +37,8 @@
             (click)="sidenav.toggle()">
           <mat-icon>menu</mat-icon>
       </button>
-      <span class="spacer"></span>    
+      <span class="spacer"></span>  
+      <p *ngIf="auth">{{ auth.usuario }}</p>  
       <button mat-button 
               color="warn"
               (click)="logout()">

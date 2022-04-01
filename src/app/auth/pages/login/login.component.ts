@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    //Ir al backend
-    // verificar user
     this.authService.login()
     .subscribe(resp=>{
       if(resp.id){
