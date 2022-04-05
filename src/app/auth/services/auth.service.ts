@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
 import { Auth } from '../interfaces/auth.interfaces';
-import { tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,26 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  verificationAuthentication(): Observable<boolean>{
+    if(!localStorage.getItem("token"))
+      return of(false); // Metodo 1
+    
+    const url:string = `${this.endPoint}/usuarios/1`;
+    return this.http.get<Auth>(url)
+           .pipe( map( resp=>{ 
+              this._auth = resp;
+              return true; 
+            }) ) // return of(true); // Metodo 2
+    
+    // of -> Crea observable en funcion a los argumentos que coloquemos  
+  }
+
   login(){
     const url:string = `${this.endPoint}/usuarios/1`;
     return this.http.get<Auth>(url)
            .pipe(
-             tap(resp=> this._auth = resp)
+             tap(resp=> this._auth = resp),
+             tap(resp=> localStorage.setItem("token", resp.id))
             ); // Uso de pipe y tap, para obtener el resp antes de enviarlo a quien lo llama
   }
 

@@ -63,3 +63,12 @@ Aparecen opciones, se uso el CanActivate y CanLoad
 ## GUARD - CanLoad
 Solo sirve para prevenir que el usuario carge el modulo, si ya el modulo estaba cargado la persona
 podra quedarse ahi
+
+## of - De rxjs
+Crea observable en funcion a los argumentos que coloquemos
+
+## tap
+Ejecuta condigo dentro de un pipe
+
+## map
+Ejecuta el respond dentro del pipe

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
+import { Observable, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -8,26 +8,45 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthGuard implements CanLoad, CanActivate {
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ){}
   
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if(this.authService.auth.id)
-      return true
       
-    console.log("Bloqueador por el AuthGuard - canActivate");
-    return false;
+      return this.authService.verificationAuthentication()
+             .pipe(
+               tap(isAuthenticated=>{
+                 if(!isAuthenticated){
+                   this.router.navigate(['auth/login']);
+                 }
+               })
+             );
+      // if(this.authService.auth.id)
+      //   return true
+        
+      // console.log("Bloqueador por el AuthGuard - canActivate");
+      // return false;
   }
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-    
-    if(this.authService.auth.id)
-      return true
+      // return this.authService.verificationAuthentication();
+      return this.authService.verificationAuthentication()
+            .pipe(
+              tap(isAuthenticated=>{
+                if(!isAuthenticated){
+                  this.router.navigate(['auth/login']);
+                }
+              })
+            );
+
+    // if(this.authService.auth.id)
+    //   return true
       
-    console.log("Bloqueador por el AuthGuard - canLoad");
-    return false;
+    // console.log("Bloqueador por el AuthGuard - canLoad");
+    // return false;
   }
 }
